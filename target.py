@@ -2,11 +2,12 @@ from turtle import Turtle
 import random
 
 
-class Target:
+class Target(Turtle):
     def __init__(self):
-        self.target = Turtle("square")
-        self.target.color("white")
-        self.target.penup()
+        super().__init__()
+        self.shape("circle")
+        self.color("white")
+        self.penup()
         self.x = None
         self.y = None
 
@@ -14,7 +15,7 @@ class Target:
     def update(self):
         self.x = round(random.randint(-280, 280) / 20) * 20
         self.y = round(random.randint(-280, 280) / 20) * 20
-        self.target.hideturtle()
-        self.target.setposition(self.x, self.y)
-        self.target.showturtle()
+        self.hideturtle()
+        self.setposition(self.x, self.y)
+        self.showturtle()
         print(f"Target position: {(self.x, self.y)}")

@@ -1,17 +1,18 @@
 from turtle import Turtle
 
 
-class Segment:
+class Segment(Turtle):
     """segment of a snake"""
     def __init__(self, x, y):
-        self.segment = Turtle("square")
-        self.segment.hideturtle()
-        self.segment.color("white")
-        self.segment.penup()
+        super().__init__()
+        self.shape("square")
+        self.hideturtle()
+        self.color("white")
+        self.penup()
         self.x = x
         self.y = y
-        self.segment.setposition(self.x, self.y)
-        self.segment.showturtle()
+        self.setposition(self.x, self.y)
+        self.showturtle()
 
     def update(self):
-        self.segment.setposition(self.x, self.y)
+        self.setposition(self.x, self.y)

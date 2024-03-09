@@ -8,10 +8,11 @@ class Game:
         self.screen = Screen()
         self.screen.setup(width=600, height=600)
         self.screen.bgcolor('black')
-        self.screen.title("Snake Game")
+
         self.screen.tracer(0, 0)  # Disable automatic screen updates
 
         self.score = 0
+        self.screen.title(f"Snake Game, Score: {self.score}")
 
         self.snake = Snake()
         self.target = Target()
@@ -64,6 +65,7 @@ class Game:
             self.score += 1
             self.target.update()
             self.snake.add_segment()
+            self.screen.title(f"Snake Game, Score: {self.score}")
 
     def evaluate_boundaries(self):
         if self.snake.head.x > 280 or self.snake.head.x < -280 or self.snake.head.y > 280 or self.snake.head.y < -280:
